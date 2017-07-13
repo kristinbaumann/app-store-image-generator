@@ -9,52 +9,66 @@ const layout = {
 }
 
 const getArtboardStyle = i => {
-    let { width, height, cols, margin } = layout;
-    let x = i % cols;
-    let y = (i - x) / cols;
+    const { width, height, cols, margin } = layout;
+    const x = i % cols;
+    const y = (i - x) / cols;
     // Top and left are switched for some reason.
-    let top = x * (width + margin) + margin; 
-    let left = y * (height + margin) + margin;
-    let style = {
+    const top = x * (width + margin) + margin; 
+    const left = y * (height + margin) + margin;
+    return {
         left,
         top,
         width,
         height,
         position: 'fixed',
-        backgroundColor: '#fff'
+        backgroundColor: '#fff' // set artboard background color here
     }
-    console.log(style)
-    return style
 }
 
 const getParentStyle = count => {
-    let { width, height, cols, margin } = layout;
-    let rows = (count - (count % cols)) / cols + 1;
-    console.log(`${rows} rows, ${cols} cols`) 
-    let totalHeight = rows * (height + margin) + margin;
-    let totalWidth = cols * (width + margin) + margin;
-    let style = {
+    const { width, height, cols, margin } = layout;
+    const rows = (count - (count % cols)) / cols + 1;
+    // console.log(`${rows} rows, ${cols} cols`) 
+    const totalHeight = rows * (height + margin) + margin;
+    const totalWidth = cols * (width + margin) + margin;
+    return {
         top: 0,
         left: 0,
         width: totalWidth,
         height: totalHeight,
         backgroundColor: '#eee'
     }
-    return style
+}
+
+const StoreImage = ({item, index}) => {
+    console.log(item);
+    return (
+        <Artboard name={`child ${index+1}`} style={getArtboardStyle(index)}>
+            <Text
+                name='Sketch Layer name'
+                style={{
+                    fontSize: 24,
+                    fontFamily: 'Helvetica',
+                    fontWeight: 'bold',
+                    color: '#01ffae',
+                }}
+                >
+                {item.text}
+            </Text>
+            <View style={{width: 100, height: 100, backgroundColor: 'green'}}>{item.text}</View>
+        </Artboard>
+    );
 }
 
 export default (context) => {
-    let content = [
-        <View style={{width: 100, height: 100, backgroundColor: 'green'}}>foo</View>,
-        <View style={{width: 100, height: 100, backgroundColor: 'green'}}>bar</View>,
-        <View style={{width: 100, height: 100, backgroundColor: 'green'}}>foo</View>,
-        <View style={{width: 100, height: 100, backgroundColor: 'green'}}>bar</View>,
-        <View style={{width: 100, height: 100, backgroundColor: 'green'}}>foo</View>,
-        <View style={{width: 100, height: 100, backgroundColor: 'green'}}>bar</View>
+    const data = [
+        { text: 'lorem ipsum1', screenshot: 'source1' },
+        { text: 'lorem ipsum2', screenshot: 'source2' },
+        { text: 'lorem ipsum3', screenshot: 'source3' },
+        { text: 'lorem ipsum4', screenshot: 'source4' }
     ]
-
-    let x = <Artboard name="parent" style={getParentStyle(content.length)}> 
-        {content.map((item, i) => <Artboard  style={getArtboardStyle(i)} children={item} />)}
+    const container  = <Artboard name="parent" style={getParentStyle(data.length)}> 
+        {data.map((item, index) => <StoreImage item={item} index={index}/>)}
     </Artboard>
-    render(x, context.document.currentPage())
+    render(container, context.document.currentPage())
 }   
