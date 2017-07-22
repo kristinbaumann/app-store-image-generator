@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, Artboard, Text, View, StyleSheet, Image } from 'react-sketchapp';
-
+import translations from '../translations/text.json';
 
 const layout = {
     width: 1242,
@@ -55,8 +55,7 @@ const getArtboardStyle = i => {
 
 const getParentStyle = count => {
     const { width, height, cols, margin } = layout;
-    const rows = (count - (count % cols)) / cols + 1;
-    // console.log(`${rows} rows, ${cols} cols`) 
+    const rows = (count - (count % cols)) / cols;
     const totalHeight = rows * (height + margin) + margin;
     const totalWidth = cols * (width + margin) + margin;
     return {
@@ -81,8 +80,8 @@ const StoreImage = ({item, index}) => {
     );
 }
 
-//const locales = ['da-DA', 'de-AT', 'de-CH', 'de-DE', 'en-AU', 'en-GB', 'en-US', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'nb-NO', 'nl-NL', 'pl-PL', 'ru-RU', 'sv-SV'];
-const locales = ['da-DA', 'de-DE', 'en-US', 'es-ES', 'fr-FR', 'it-IT'];
+const locales = ['da-DA', 'de-AT', 'de-CH', 'de-DE', 'en-AU', 'en-GB', 'en-US', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'nb-NO', 'nl-NL', 'pl-PL', 'ru-RU', 'sv-SV'];
+//const locales = ['de-DE', 'en-US', 'es-ES', 'fr-FR'];
 const selectedScreenshots = [ '0FD', '1List1', '2Filters', '3Maps', '4Details1'];
 const meta = {
     url: 'http://localhost:5000',
@@ -94,11 +93,22 @@ const meta = {
 mergeData = () => {
     const data = [];
     for (var j = 0; j < locales.length; j++) {
+        const locale = locales[j];
+        
         for (let i = 0; i < selectedScreenshots.length; i++) {
+            let text = translations.filter((item) => {
+                if(item['field1'] === 'screenshot #'+(i+1)) return true;
+                return false;
+            })[0];
+
+            let textLocale = locale;
+            if(locale === 'de-DE' || locale === 'de-AT' || locale === 'de-CH') textLocale = 'de-AT, de-DE, de-CH'; 
+            if(locale === 'pl-PL') textLocale = 'Polish'; 
+
             data.push({ 
-                locale: locales[j], 
+                locale, 
                 screenshot: selectedScreenshots[i], 
-                text: 'text' 
+                text: text[textLocale]
             });
         }    
     }
@@ -106,6 +116,7 @@ mergeData = () => {
 }
 
 export default (context) => {
+    
     const data = mergeData();
     const container  = <Artboard name="container" style={getParentStyle(data.length)}> 
         {data.map((item, index) => <StoreImage key={index} item={item} index={index}/>)}
