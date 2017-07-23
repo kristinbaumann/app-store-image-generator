@@ -3,32 +3,41 @@ import { render, Artboard, Text, View, StyleSheet, Image } from 'react-sketchapp
 import translations from '../translations/text.json';
 
 const layout = {
-    width: 1242,
-    height: 2208,
+    // iOS app store image size requirements
+    width: 414,
+    height: 736,
     cols: 5,
-    margin: 150
+    margin: 100
 }
 
 const styles ={
     title: {
-        fontSize: 72,
-        fontFamily: 'Helvetica',
+        width: 414,
+        fontSize: 22,
+        lineHeight: 32,
+        fontFamily: 'SF Pro Display',
         fontWeight: 'bold',
         color: '#ffffff',
-        paddingTop: 20
+        paddingTop: 35,
+        paddingBottom: 35,
+        paddingLeft: 25,
+        paddingRight: 25,
+        textAlign: 'center'
     },
     container: {
         position: 'relative'
     },
     phone: {
-        width: 1058,
-        height: 1815
+        width: 365,
+        height: 743
     },
     screenshot: {
-        top: 215,
-        left: 45,
-        height: 1605,
-        width: 946,
+        borderWidth: 1,
+        borderColor: '#000000',
+        top: 90,
+        left: 24,
+        height: 558,
+        width: 316,
         position: 'absolute'
     }
 };
@@ -73,7 +82,7 @@ const StoreImage = ({item, index}) => {
         <Artboard name={`iOS_${meta.version}_${item.locale}_${item.screenshot}`} style={getArtboardStyle(index)}>
             <Text style={styles.title}>{item.text}</Text>
             <View style={styles.container}>
-                <Image source={meta.url+'/phone2.png'} style={styles.phone} />
+                <Image source={meta.url+'/'+meta.frame} style={styles.phone} />
                 <Image source={path} style={styles.screenshot} />
             </View>
         </Artboard>
@@ -87,7 +96,8 @@ const meta = {
     url: 'http://localhost:5000',
     device: 'iPhone6Plus',
     hash: 'd41d8cd98f00b204e9800998ecf8427e',
-    version: '1.7.1'
+    version: '1.7.1',
+    frame: 'frame@1x.png'
 }
 
 mergeData = () => {
