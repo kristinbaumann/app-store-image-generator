@@ -10,6 +10,9 @@ const layout = {
 }
 
 const styles ={
+    container: {
+        position: 'relative'
+    },
     title: {
         width: 414,
         fontSize: 22,
@@ -22,9 +25,6 @@ const styles ={
         paddingLeft: 25,
         paddingRight: 25,
         textAlign: 'center'
-    },
-    container: {
-        position: 'relative'
     },
     phone: {
         width: 365,
@@ -54,7 +54,7 @@ const getArtboardStyle = i => {
         width,
         height,
         position: 'fixed',
-        backgroundColor: '#4a90e2', // set artboard background color here
+        backgroundColor: '#4a90e2', // artboard background color
         flexDirection: 'column',
         justifyContent: 'space-between',
         alignItems: 'center'
@@ -94,7 +94,7 @@ const meta = {
     url: 'http://localhost:5000',
     device: 'iPhone6Plus',
     hash: 'd41d8cd98f00b204e9800998ecf8427e',
-    version: '1.7.1',
+    version: '1.7.0',
     frame: 'frame@1x.png'
 }
 
@@ -124,7 +124,6 @@ mergeData = () => {
 }
 
 export default (context) => {
-    
     const data = mergeData();
     const container  = <Artboard name="container" style={getParentStyle(data.length)}> 
         {data.map((item, index) => <StoreImage key={index} item={item} index={index}/>)}
