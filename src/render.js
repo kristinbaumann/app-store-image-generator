@@ -8,6 +8,7 @@ const meta = {
 }
 
 const locales = ["english_american","german","english_uk","english_australia","frensh","italian","dutch","spanish_spain","spanish_mexican","norwegian","russian","swedish","danish"];
+const envs = ['ios', 'and'];
 
 const layout = {
     width: 414,
@@ -83,9 +84,9 @@ const getParentStyle = count => {
 }
 
 const StoreImage = ({item, index}) => {
-    const path = `${meta.url}/images_ios/${item.imageKey}/${item.screenshotImg}.png`;
+    const path = `${meta.url}/images_${item.env}/${item.imageKey}/${item.screenshotImg}.png`;
     return (
-        <Artboard name={`ios_${item.iosKey}_${item.number}`} style={getArtboardStyle(index)}>
+        <Artboard name={`${item.env}_${item.localeKey}_${item.number}`} style={getArtboardStyle(index)}>
             <Text style={styles.title}>{item.screenshotText}</Text>
             <View style={styles.container}>
                 <Image source={meta.url+'/'+meta.frame} style={styles.phone} />
@@ -98,27 +99,32 @@ const StoreImage = ({item, index}) => {
 prepareData = () =>{
     const data = [];
 
-    // loop through locales
-    for (let l = 0; l < locales.length; l++) {
-        const localeText = locales[l];
-        const iosKey = translations.filter(t => t.key === 'ios_key')[0][localeText];
-        const imageKey = translations.filter(t => t.key === 'ios_image_key')[0][localeText];
+    for (var i = 0; i < envs.length; i++) {
+        let env = envs[i];
+        // loop through locales
+        for (let l = 0; l < locales.length; l++) {
+            const localeText = locales[l];
+            const localeKey = translations.filter(t => t.key === env+'_key')[0][localeText];
+            const imageKey = translations.filter(t => t.key === env+'_image_key')[0][localeText];
 
-        // loop through screenshots
-        for (var number = 1; number < 6; number++) {
-            const screenshotText = translations.filter(t => t.key === 'ios_screenshot_'+number+'_text')[0][localeText];
-            const screenshotImg = translations.filter(t => t.key === 'ios_screenshot_'+number+'_img')[0][localeText];
-            
-            let element = {
-                localeText,
-                iosKey,
-                imageKey,
-                screenshotText,
-                screenshotImg,
-                number
+            // loop through screenshots
+            for (var number = 1; number < 6; number++) {
+                const screenshotText = translations.filter(t => t.key === env+'_screenshot_'+number+'_text')[0][localeText];
+                const screenshotImg = translations.filter(t => t.key === env+'_screenshot_'+number+'_img')[0][localeText];
+                
+                let element = {
+                    localeText,
+                    localeKey,
+                    imageKey,
+                    screenshotText,
+                    screenshotImg,
+                    number,
+                    env
+                }
+                data.push(element);
             }
-            data.push(element);
         }
+
     }
     return data;
 }
