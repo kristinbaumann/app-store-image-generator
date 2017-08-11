@@ -1,6 +1,13 @@
 import React from 'react';
 import { render, Artboard, Text, View, StyleSheet, Image } from 'react-sketchapp';
-import translations from '../translations/text.json';
+import translations from '../../rawData/translations/translations.json';
+
+const meta = {
+    url: 'http://localhost:5000',
+    frame: 'frame@1x.png'
+}
+
+const locales = ["english_american","german","english_uk","english_australia","frensh","italian","dutch","spanish_spain","spanish_mexican","norwegian","russian","swedish","danish"];
 
 const layout = {
     width: 414,
@@ -76,10 +83,10 @@ const getParentStyle = count => {
 }
 
 const StoreImage = ({item, index}) => {
-    const path = `${meta.url}/${item.locale}/${meta.device}-${item.screenshot}-${meta.hash}.png`;
+    const path = `${meta.url}/images_ios/${item.imageKey}/${item.screenshotImg}.png`;
     return (
-        <Artboard name={`iOS_${meta.version}_${item.locale}_${item.screenshot}`} style={getArtboardStyle(index)}>
-            <Text style={styles.title}>{item.text}</Text>
+        <Artboard name={`ios_${item.iosKey}_${item.number}`} style={getArtboardStyle(index)}>
+            <Text style={styles.title}>{item.screenshotText}</Text>
             <View style={styles.container}>
                 <Image source={meta.url+'/'+meta.frame} style={styles.phone} />
                 <Image source={path} style={styles.screenshot} />
@@ -88,43 +95,38 @@ const StoreImage = ({item, index}) => {
     );
 }
 
-const locales = ['da-DA', 'de-AT', 'de-CH', 'de-DE', 'en-AU', 'en-GB', 'en-US', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'nb-NO', 'nl-NL', 'pl-PL', 'ru-RU', 'sv-SV'];
-const selectedScreenshots = [ '0FD', '1List1', '2Filters', '3Maps', '4Details1'];
-const meta = {
-    url: 'http://localhost:5000',
-    device: 'iPhone6Plus',
-    hash: 'd41d8cd98f00b204e9800998ecf8427e',
-    version: '1.7.0',
-    frame: 'frame@1x.png'
-}
-
-mergeData = () => {
+prepareData = () =>{
     const data = [];
-    for (var j = 0; j < locales.length; j++) {
-        const locale = locales[j];
-        
-        for (let i = 0; i < selectedScreenshots.length; i++) {
-            let text = translations.filter((item) => {
-                if(item['field1'] === 'screenshot #'+(i+1)) return true;
-                return false;
-            })[0];
 
-            let textLocale = locale;
-            if(locale === 'de-DE' || locale === 'de-AT' || locale === 'de-CH') textLocale = 'de-AT, de-DE, de-CH'; 
-            if(locale === 'pl-PL') textLocale = 'Polish'; 
+    // loop through locales
+    for (let l = 0; l < locales.length; l++) {
+        const localeText = locales[l];
+        const iosKey = translations.filter(t => t.key === 'ios_key')[0][localeText];
+        const imageKey = translations.filter(t => t.key === 'ios_image_key')[0][localeText];
 
-            data.push({ 
-                locale, 
-                screenshot: selectedScreenshots[i], 
-                text: text[textLocale]
-            });
-        }    
+        // loop through screenshots
+        for (var number = 1; number < 6; number++) {
+            const screenshotText = translations.filter(t => t.key === 'ios_screenshot_'+number+'_text')[0][localeText];
+            const screenshotImg = translations.filter(t => t.key === 'ios_screenshot_'+number+'_img')[0][localeText];
+            
+            let element = {
+                localeText,
+                iosKey,
+                imageKey,
+                screenshotText,
+                screenshotImg,
+                number
+            }
+            data.push(element);
+        }
     }
     return data;
 }
 
 export default (context) => {
-    const data = mergeData();
+    const data = prepareData();
+    console.log(data);
+
     const container  = <Artboard name="container" style={getParentStyle(data.length)}> 
         {data.map((item, index) => <StoreImage key={index} item={item} index={index}/>)}
     </Artboard>

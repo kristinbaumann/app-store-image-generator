@@ -9,7 +9,8 @@
     "watch": "skpm build --watch",
     "render": "skpm build --watch --run",
     "render:once": "skpm build --run",
-    "link-plugin": "skpm link"
+    "link-plugin": "skpm link",
+    "updateText": "node updateText.js"
   },
   "author": "Kristin Baumann",
   "license": "MIT",
