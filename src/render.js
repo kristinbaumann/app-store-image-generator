@@ -131,8 +131,6 @@ prepareData = () =>{
 
 export default (context) => {
     const data = prepareData();
-    console.log(data);
-
     const container  = <Artboard name="container" style={getParentStyle(data.length)}> 
         {data.map((item, index) => <StoreImage key={index} item={item} index={index}/>)}
     </Artboard>
