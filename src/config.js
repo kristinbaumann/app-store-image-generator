@@ -1,6 +1,31 @@
+const itemWidth = 414;
+
+const phoneCutHalf = {
+    phoneMargin: 25, 
+    phoneTopWidth: 90,
+    phoneSideWidth: 25
+}
+const phoneCutBottom = {
+    phoneMargin: 40, 
+    phoneTopWidth: 83,
+    phoneSideWidth: 23
+}
+const phoneComplete = {
+    phoneMargin: 55, 
+    phoneTopWidth: 75, 
+    phoneSideWidth: 21, 
+};
+const phoneSmall = {
+    phoneMargin: 75, 
+    phoneTopWidth: 65,
+    phoneSideWidth: 17
+}
+
+const dimensions = phoneCutBottom;
+
 const config = {
     layout: {
-        itemWidth: 414,
+        itemWidth: itemWidth,
         itemHeight: 736,
         cols: 5,
         margin: 100
@@ -17,11 +42,11 @@ const config = {
             position: 'fixed',
             backgroundColor: '#000000', // artboard background color
             flexDirection: 'column',
-            justifyContent: 'space-between',
+            justifyContent: 'flex-start',
             alignItems: 'center'
         },
         title: {
-            width: 414,
+            width: itemWidth,
             fontSize: 36,
             lineHeight: 32,
             fontFamily: 'SF Pro Display',
@@ -34,19 +59,20 @@ const config = {
             textAlign: 'center'
         },
         imageContainer: {
-            position: 'relative'
+            position: 'relative',
+           // alignSelf: ''
         },
         phone: {
-            width: 414-(25*2), // 365px
-            height: 743
+            width: itemWidth-(dimensions.phoneMargin * 2), // 365px
+            height: (itemWidth-(dimensions.phoneMargin * 2) )* 2.04 // 743
         },
         screenshot: {
             borderWidth: 1,
             borderColor: '#000000',
-            top: 90,
-            left: 24,
-            height: 558,
-            width: 414-(25*4)+1, // 315px
+            top: dimensions.phoneTopWidth,
+            left: dimensions.phoneSideWidth-1,
+            width: itemWidth-(dimensions.phoneMargin*2 + dimensions.phoneSideWidth*2)+1, // 315px
+            height: (itemWidth-(dimensions.phoneMargin*2 + dimensions.phoneSideWidth*2)+1) * 1.78, //558, 561
             position: 'absolute'
         }
     }
