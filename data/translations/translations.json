@@ -1,0 +1,102 @@
+[
+  {
+    "key": "screenshot_1_text",
+    "en-US": "Headline 1",
+    "de-DE": "Überschrift 1",
+    "fr-FR": "Titre 1",
+    "it-IT": "Titolo 1",
+    "nl-NL": "Kop 1",
+    "es-ES": "Titular 1",
+    "ru-RU": "Заголовок 1"
+  },
+  {
+    "key": "screenshot_1_img",
+    "en-US": "app_1.png",
+    "de-DE": "app_1.png",
+    "fr-FR": "app_1.png",
+    "it-IT": "app_1.png",
+    "nl-NL": "app_1.png",
+    "es-ES": "app_1.png",
+    "ru-RU": "app_1.png"
+  },
+  {
+    "key": "screenshot_2_text",
+    "en-US": "Headline 2",
+    "de-DE": "Überschrift 2",
+    "fr-FR": "Titre 2",
+    "it-IT": "Titolo 2",
+    "nl-NL": "Kop 2",
+    "es-ES": "Titular 2",
+    "ru-RU": "Заголовок 2"
+  },
+  {
+    "key": "screenshot_2_img",
+    "en-US": "app_2.png",
+    "de-DE": "app_2.png",
+    "fr-FR": "app_2.png",
+    "it-IT": "app_2.png",
+    "nl-NL": "app_2.png",
+    "es-ES": "app_2.png",
+    "ru-RU": "app_2.png"
+  },
+  {
+    "key": "screenshot_3_text",
+    "en-US": "Headline 3",
+    "de-DE": "Überschrift 3",
+    "fr-FR": "Titre 3",
+    "it-IT": "Titolo 3",
+    "nl-NL": "Kop 3",
+    "es-ES": "Titular 3",
+    "ru-RU": "Заголовок 3"
+  },
+  {
+    "key": "screenshot_3_img",
+    "en-US": "app_3.png",
+    "de-DE": "app_3.png",
+    "fr-FR": "app_3.png",
+    "it-IT": "app_3.png",
+    "nl-NL": "app_3.png",
+    "es-ES": "app_3.png",
+    "ru-RU": "app_3.png"
+  },
+  {
+    "key": "screenshot_4_text",
+    "en-US": "Headline 3",
+    "de-DE": "Überschrift 4",
+    "fr-FR": "Titre 4",
+    "it-IT": "Titolo 4",
+    "nl-NL": "Kop 4",
+    "es-ES": "Titular 4",
+    "ru-RU": "Заголовок 4"
+  },
+  {
+    "key": "screenshot_4_img",
+    "en-US": "app_4.png",
+    "de-DE": "app_4.png",
+    "fr-FR": "app_4.png",
+    "it-IT": "app_4.png",
+    "nl-NL": "app_4.png",
+    "es-ES": "app_4.png",
+    "ru-RU": "app_4.png"
+  },
+  {
+    "key": "screenshot_5_text",
+    "en-US": "Headline 4",
+    "de-DE": "Überschrift 5",
+    "fr-FR": "Titre 5",
+    "it-IT": "Titolo 5",
+    "nl-NL": "Kop 5",
+    "es-ES": "Titular 5",
+    "ru-RU": "Заголовок 5"
+  },
+  {
+    "key": "screenshot_5_img",
+    "en-US": "app_5.png",
+    "de-DE": "app_5.png",
+    "fr-FR": "app_5.png",
+    "it-IT": "app_5.png",
+    "nl-NL": "app_5.png",
+    "es-ES": "app_5.png",
+    "ru-RU": "app_5.png"
+  }
+]
