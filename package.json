@@ -9,7 +9,8 @@
     "watch": "skpm build --watch",
     "render": "skpm build --watch --run",
     "render:once": "skpm build --run",
-    "link-plugin": "skpm link"
+    "link-plugin": "skpm link",
+    "serveImages": "cd data && serve . -p 5000" 
   },
   "author": "Kristin Baumann",
   "license": "MIT",
@@ -21,6 +22,7 @@
     "prop-types": "^15.5.8",
     "react": "^15.4.2",
     "react-sketchapp": "^0.11.0",
-    "react-test-renderer": "^15.4.2"
+    "react-test-renderer": "^15.4.2",
+    "serve": "^6.0.6"
   }
 }

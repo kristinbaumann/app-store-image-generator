@@ -5,9 +5,10 @@ const config = {
         cols: 5,
         margin: 100
     },
+    translations: require('../data/translations/translations.json'),
+    locales: ["en-US","de-DE","fr-FR","it-IT","nl-NL","es-ES","ru-RU"],
     imageUrl: 'http://localhost:5000',
-    phoneFrameUrl: 'http://localhost:5000/frame_iphone7_abstract.png',
-    
+    phoneFrame: 'frame_iphone7_abstract.png',
     styles: {
         container:{
             backgroundColor: '#eee'
@@ -48,12 +49,7 @@ const config = {
             width: 316,
             position: 'absolute'
         }
-    },
-
-    //translations: require('../../rawData/translations/translations.json'),
-    translations: require('../data/translations/translations_v1.json'),
-    locales: ["English_American","German","English_UK","English_Australia","Frensh","Italian","Dutch","Spanish_Spain","Spanish_Mexican","Norwegian","Russian","Swedish","Danish"],
-    envs: ['ios', 'and'],
+    }
 }
 
 export default config;

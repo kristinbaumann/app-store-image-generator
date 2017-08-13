@@ -16,13 +16,13 @@ class StoreImage extends Component {
     }
     render(){
         const {item, index} = this.props;
-        const screenshotPath = `${config.imageUrl}/images_${item.env}/${item.imageKey}/${item.screenshotImg}.png`;
+        const screenshotPath = `${config.imageUrl}/screenshots/${item.locale}/${item.screenshotImg}.png`;
         const storeImageStyle = Object.assign({}, this.calculateLayout(index), styles.storeImage);
         return (
-            <Artboard name={`${item.env}_${item.localeKey}_${item.number}`} style={storeImageStyle}>
+            <Artboard name={`${item.locale}_${item.number}`} style={storeImageStyle}>
                 <Text style={styles.title}>{item.screenshotText}</Text>
                 <View style={styles.imageContainer}>
-                    <Image source={config.phoneFrameUrl} style={styles.phone} />
+                    <Image source={`${config.imageUrl}/images/${config.phoneFrame}`} style={styles.phone} />
                     <Image source={screenshotPath} style={styles.screenshot} />
                 </View>
             </Artboard>
