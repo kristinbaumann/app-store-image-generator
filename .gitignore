@@ -4,4 +4,5 @@ node_modules
 *.sketchplugin
 .vscode
 /export
-/data
+exampleAppScreenshots.sketch
+Readme.1.md

@@ -16,7 +16,7 @@ class StoreImage extends Component {
     }
     render(){
         const {item, index} = this.props;
-        const screenshotPath = `${config.imageUrl}/screenshots/${item.locale}/${item.screenshotImg}.png`;
+        const screenshotPath = `${config.imageUrl}/screenshots/${item.locale}/${item.screenshotImg}`;
         const storeImageStyle = Object.assign({}, this.calculateLayout(index), styles.storeImage);
         return (
             <Artboard name={`${item.locale}_${item.number}`} style={storeImageStyle}>

@@ -15,14 +15,14 @@ const config = {
         },
         storeImage: {
             position: 'fixed',
-            backgroundColor: '#4a90e2', // artboard background color
+            backgroundColor: '#000000', // artboard background color
             flexDirection: 'column',
             justifyContent: 'space-between',
             alignItems: 'center'
         },
         title: {
             width: 414,
-            fontSize: 22,
+            fontSize: 36,
             lineHeight: 32,
             fontFamily: 'SF Pro Display',
             fontWeight: 'bold',
