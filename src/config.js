@@ -37,7 +37,7 @@ const config = {
             position: 'relative'
         },
         phone: {
-            width: 365,
+            width: 414-(25*2), // 365px
             height: 743
         },
         screenshot: {
@@ -46,7 +46,7 @@ const config = {
             top: 90,
             left: 24,
             height: 558,
-            width: 316,
+            width: 414-(25*4)+1, // 315px
             position: 'absolute'
         }
     }
