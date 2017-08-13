@@ -6,8 +6,12 @@ const config = {
         margin: 100
     },
     imageUrl: 'http://localhost:5000',
-    phoneFrame: 'frame@1x.png',
+    phoneFrameUrl: 'http://localhost:5000/frame_iphone7_abstract.png',
+    
     styles: {
+        container:{
+            backgroundColor: '#eee'
+        },
         storeImage: {
             position: 'fixed',
             backgroundColor: '#4a90e2', // artboard background color
@@ -44,7 +48,12 @@ const config = {
             width: 316,
             position: 'absolute'
         }
-    }
+    },
+
+    //translations: require('../../rawData/translations/translations.json'),
+    translations: require('../data/translations/translations_v1.json'),
+    locales: ["English_American","German","English_UK","English_Australia","Frensh","Italian","Dutch","Spanish_Spain","Spanish_Mexican","Norwegian","Russian","Swedish","Danish"],
+    envs: ['ios', 'and'],
 }
 
 export default config;

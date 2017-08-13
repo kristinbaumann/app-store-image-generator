@@ -3,6 +3,5 @@
 node_modules
 *.sketchplugin
 .vscode
-/screenshots/
-export1.sketch
 /export
+/data
