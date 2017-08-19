@@ -2,7 +2,9 @@
 
 **Automatic generation of localised app store images in Sketch with react-sketchapp.**
 
-Put together caption translations and localised app screenshots. Update all app images for all locales in an instant! 
+New app screenshots? Don't update all app images manually! Update all app images for all locales in an instant by generating them in Sketch automatically! 
+
+![app-store-image-generator screenshot tool](https://raw.githubusercontent.com/kristinbaumann/app-store-image-generator/master/app-store-image-generator-example.png?token=ANZUAWQobNXJRPcIlj6bjA-ta6zbi0Y7ks5ZocqFwA%3D%3D)
 
 ## Quick Setup
 
