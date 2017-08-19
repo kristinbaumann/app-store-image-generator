@@ -4,9 +4,8 @@ import Container from './components/Container';
 import getData from './helper/getData';
 
 export default (context) => {
-    const data = getData();
     render(
-        <Container data={data} />, 
+        <Container data={getData()} />, 
         context.document.currentPage()
     )
 }   
