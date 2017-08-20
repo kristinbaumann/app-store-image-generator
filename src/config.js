@@ -45,11 +45,11 @@ const config = {
     // styles used for generated app images
     styles: {
         container:{
-            backgroundColor: '#eee'
+            backgroundColor: '#F2F2F2'
         },
         storeImage: {
             position: 'fixed',
-            backgroundColor: '#000000', // artboard background color
+            backgroundColor: '#005493', // artboard background color
             flexDirection: 'column',
             justifyContent: 'flex-start',
             alignItems: 'center' // centered items
@@ -57,13 +57,13 @@ const config = {
         title: {
             // title attributes
             width: imageWidth,
-            fontSize: 36, 
+            fontSize: 40, 
             lineHeight: 32, 
             fontFamily: 'SF Pro Display', 
             fontWeight: 'bold', 
             color: '#ffffff', 
-            paddingTop: 35,
-            paddingBottom: 35,
+            paddingTop: 55,
+            paddingBottom: 50,
             paddingLeft: 25,
             paddingRight: 25,
             textAlign: 'center'
@@ -73,15 +73,15 @@ const config = {
         },
         phone: {
             width: imageWidth-(dimensions.phoneMargin * 2), // 365px
-            height: (imageWidth-(dimensions.phoneMargin * 2) )* 2.04 // 743
+            height: (imageWidth-(dimensions.phoneMargin * 2) )* 2.04 // 743px
         },
         screenshot: {
             borderWidth: 1,
             borderColor: '#000000',
             top: dimensions.phoneTopWidth,
             left: dimensions.phoneSideWidth-1,
-            width: imageWidth-(dimensions.phoneMargin*2 + dimensions.phoneSideWidth*2)+1, // 315px
-            height: (imageWidth-(dimensions.phoneMargin*2 + dimensions.phoneSideWidth*2)+1) * 1.78, //558, 561
+            width: imageWidth-(dimensions.phoneMargin*2 + dimensions.phoneSideWidth*2)+1,
+            height: (imageWidth-(dimensions.phoneMargin*2 + dimensions.phoneSideWidth*2)+1) * 1.78,
             position: 'absolute'
         }
     }
