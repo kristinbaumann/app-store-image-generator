@@ -19,3 +19,6 @@ Requirements: Node.js, Sketch App
 * Set your locales and styling in `config.js` 
 * Replace the default translation strings in `./data/translations.json`
 * Replace the default app screenshots in `./data/screenshots`
+
+
+Source of device frames: http://facebook.design/devices
