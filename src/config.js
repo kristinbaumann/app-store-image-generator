@@ -59,7 +59,6 @@ const config = {
             width: imageWidth,
             fontSize: 40, 
             lineHeight: 32, 
-            fontFamily: 'SF Pro Display', 
             fontWeight: 'bold', 
             color: '#ffffff', 
             paddingTop: 55,

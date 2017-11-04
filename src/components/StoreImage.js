@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Artboard, Text, View, Image } from 'react-sketchapp';
-import config, {styles} from '../config';
+import config from '../config';
 
 class StoreImage extends Component {
     calculateLayout(i){
@@ -17,13 +17,13 @@ class StoreImage extends Component {
     render(){
         const {item, index} = this.props;
         const screenshotPath = `${config.imageUrl}/screenshots/${item.locale}/${item.screenshotImg}`;
-        const storeImageStyle = Object.assign({}, this.calculateLayout(index), styles.storeImage);
+        const storeImageStyle = Object.assign({}, this.calculateLayout(index), config.styles.storeImage);
         return (
             <Artboard name={`${item.locale}_${item.number}`} style={storeImageStyle}>
-                <Text style={styles.title}>{item.screenshotText}</Text>
-                <View style={styles.imageContainer}>
-                    <Image source={`${config.imageUrl}/images/${config.phoneFrame}`} style={styles.phone} />
-                    <Image source={screenshotPath} style={styles.screenshot} />
+                <Text style={config.styles.title}>{item.screenshotText}</Text>
+                <View style={config.styles.imageContainer}>
+                    <Image source={`${config.imageUrl}/images/${config.phoneFrame}`} style={config.styles.phone} />
+                    <Image source={screenshotPath} style={config.styles.screenshot} />
                 </View>
             </Artboard>
         );
