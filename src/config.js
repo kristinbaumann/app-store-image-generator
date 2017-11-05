@@ -56,15 +56,13 @@ const config = {
         },
         title: {
             // title attributes
-            width: imageWidth,
             fontSize: 40, 
             lineHeight: 32, 
             fontWeight: 'bold', 
             color: '#ffffff', 
-            paddingTop: 55,
-            paddingBottom: 50,
-            paddingLeft: 25,
-            paddingRight: 25,
+            marginTop: 55,
+            marginBottom: 50,
+            marginHorizontal: 25,
             textAlign: 'center'
         },
         imageContainer: {
