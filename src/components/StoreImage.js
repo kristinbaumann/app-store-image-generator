@@ -8,8 +8,8 @@ class StoreImage extends Component {
         const x = i % cols;
         const y = (i - x) / cols;
         return {
-            left: y * (itemHeight + margin) + margin,
-            top: x * (itemWidth + margin) + margin,
+            top: y * (itemHeight + margin) + margin,
+            left: x * (itemWidth + margin) + margin,
             width: itemWidth,
             height: itemHeight
         }

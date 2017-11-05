@@ -48,7 +48,7 @@ const config = {
             backgroundColor: '#F2F2F2'
         },
         storeImage: {
-            position: 'fixed',
+            position: 'absolute',
             backgroundColor: '#005493', // artboard background color
             flexDirection: 'column',
             justifyContent: 'flex-start',
